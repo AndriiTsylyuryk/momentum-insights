@@ -1,0 +1,30 @@
+.top-telegram {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+  color: #fff;
+  padding: 0.85rem 1.8rem;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+}
+
+.top-telegram:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(30, 64, 175, 0.3);
+}
+
+.top-telegram img {
+  width: 20px;
+  height: 20px;
+}

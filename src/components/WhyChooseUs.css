@@ -1,0 +1,25 @@
+.why-choose-us {
+  margin: 5rem 0;
+}
+
+.why-choose-us h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #0f172a;
+  text-align: center;
+}
+
+.why-choose-us p {
+  font-size: 1.1rem;
+  color: #4b5563;
+  max-width: 750px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .why-choose-us h2 {
+    font-size: 1.8rem;
+  }
+}

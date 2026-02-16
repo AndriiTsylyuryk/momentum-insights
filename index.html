@@ -1,339 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Momentum Insights</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Momentum Insights - Daily AI-Powered Insights</title>
+    <meta
+      name="description"
+      content="Daily AI-powered tips and smart insights to help you make informed decisions and manage your day with confidence."
+    />
 
-  <!-- Meta Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'YOUR_PIXEL_ID');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
-  /></noscript>
+    <!-- Meta Pixel Code -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments)
+        }
+        if (!f._fbq) f._fbq = n
+        n.push = n
+        n.loaded = !0
+        n.version = '2.0'
+        n.queue = []
+        t = b.createElement(e)
+        t.async = !0
+        t.src = v
+        s = b.getElementsByTagName(e)[0]
+        s.parentNode.insertBefore(t, s)
+      })(
+        window,
+        document,
+        'script',
+        'https://connect.facebook.net/en_US/fbevents.js'
+      )
+      fbq('init', 'YOUR_PIXEL_ID')
+      fbq('track', 'PageView')
+    </script>
+    <!-- End Meta Pixel Code -->
+  </head>
+  <body>
+    <!-- Facebook Pixel noscript -->
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+    /></noscript>
 
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { 
-      font-family: 'Inter', sans-serif; 
-      background: #f9fafb; 
-      color: #1f2937; 
-      line-height: 1.6;
-    }
-
-    header {
-      background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
-      padding: 5rem 2rem;
-      text-align: center;
-      color: #fff;
-      position: relative;
-      overflow: hidden;
-    }
-    header::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -10%;
-      width: 400px;
-      height: 400px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 50%;
-    }
-    header h1 { 
-      font-size: 2rem; 
-      font-weight: 700; 
-      margin-bottom: 1rem;
-      position: relative;
-      z-index: 1;
-    }
-    header p { 
-      font-size: 1.25rem; 
-      max-width: 650px; 
-      margin: 0 auto;
-      opacity: 0.95;
-      position: relative;
-      z-index: 1;
-    }
-
-    main { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
-
-    .hero-section {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-      margin: 5rem 0;
-      padding: 3rem;
-      background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-    }
-    .hero-content h2 { font-size: 2.2rem; margin-bottom: 1.5rem; color: #0f172a; }
-    .hero-content p { color: #4b5563; margin-bottom: 1.5rem; }
-    .hero-image img { width: 100%; border-radius: 16px; object-fit: cover; }
-
-    section { margin: 5rem 0; }
-    section h2 { 
-      font-size: 2.2rem; 
-      font-weight: 700; 
-      margin-bottom: 1rem; 
-      color: #0f172a;
-      text-align: center;
-    }
-    section > p { 
-      font-size: 1.1rem; 
-      color: #4b5563; 
-      max-width: 750px; 
-      margin: 0 auto 3rem;
-      text-align: center;
-    }
-
-    .cards { 
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem; 
-      margin-top: 3rem;
-    }
-    .card {
-      background: #fff;
-      padding: 2.5rem;
-      border-radius: 16px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
-      border-left: 4px solid #1e40af;
-    }
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-    }
-    .card h3 { 
-      font-size: 1.3rem; 
-      margin-bottom: 1rem; 
-      color: #0f172a;
-    }
-    .card p { color: #6b7280; line-height: 1.7; }
-
-    .cta-section {
-      text-align: center;
-      padding: 4rem 2rem;
-      margin: 5rem 0 0;
-    }
-
-    .telegram-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
-      color: #fff;
-      padding: 1rem 2.5rem;
-      border-radius: 12px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-size: 1.05rem;
-      cursor: pointer;
-      border: none;
-    }
-    .telegram-button:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(30, 64, 175, 0.3);
-    }
-    .telegram-button img {
-      width: 24px;
-      height: 24px;
-    }
-
-    /* Fixed Top Telegram Button */
-    .top-telegram {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 1000;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
-      color: #fff;
-      padding: 0.85rem 1.8rem;
-      border-radius: 12px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-size: 0.95rem;
-      cursor: pointer;
-      border: none;
-    }
-    .top-telegram:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(30, 64, 175, 0.3);
-    }
-    .top-telegram img {
-      width: 20px;
-      height: 20px;
-    }
-
-    /* Logo in Header */
-    .header-logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-    }
-    .header-logo img {
-      height: 300px;
-      width: auto;
-    }
-
-    /* Header Join Button */
-    .header-join-section {
-      background: #f9fafb;
-      padding: 2rem;
-      text-align: center;
-      border-bottom: 1px solid #e5e7eb;
-    }
-    .header-join-section p {
-      font-size: 1.1rem;
-      color: #4b5563;
-      margin-bottom: 1.5rem;
-    }
-    .header-join-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
-      color: #fff;
-      padding: 1rem 2.5rem;
-      border-radius: 12px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-size: 1.05rem;
-      cursor: pointer;
-      border: none;
-    }
-    .header-join-button:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(30, 64, 175, 0.3);
-    }
-    .header-join-button img {
-      width: 24px;
-      height: 24px;
-    }
-
-    footer { 
-      text-align: center; 
-      padding: 3rem 2rem; 
-      color: #9ca3af; 
-      font-size: 0.95rem;
-      border-top: 1px solid #e5e7eb;
-    }
-
-    @media(max-width: 768px) {
-      header h1 { font-size: 2rem; }
-      header p { font-size: 1rem; }
-      .hero-section { 
-        grid-template-columns: 1fr;
-        padding: 2rem;
-      }
-      section h2 { font-size: 1.8rem; }
-      .cards { grid-template-columns: 1fr; }
-      main { padding: 0 1.5rem; }
-    }
-  </style>
-</head>
-<body>
-  <a href="https://t.me/+-k9zzEEk1ekwNDAy" class="top-telegram" id="topTelegramButton">
-    <img src="https://img.icons8.com/color/48/000000/telegram-app.png" alt="Telegram">
-    Join Channel
-  </a>
-
-  <header>
-    <div class="header-logo">
-      <img src="logo.png" alt="Momentum Insights Logo">
-    </div>
-    <h1>Momentum Insights</h1>
-    <p>Daily AI-powered tips and smart insights to help you make informed decisions and manage your day with confidence.</p>
-  </header>
-
-  <section class="header-join-section">
-    <p>Get daily AI insights delivered to your inbox</p>
-    <a href="https://t.me/+-k9zzEEk1ekwNDAy" class="header-join-button" id="headerJoinButton">
-      <img src="https://img.icons8.com/color/48/000000/telegram-app.png" alt="Telegram">
-      Join Our Community
-    </a>
-  </section>
-
-  <main>
-    <!-- Hero Section with Image -->
-    <section class="hero-section">
-      <div class="hero-content">
-        <h2>Smart Decisions, Every Day</h2>
-        <p>Our AI analyzes current trends, data, and patterns to provide practical tips for your everyday life, helping you stay informed and make better choices.</p>
-        <p style="font-size: 0.95rem; color: #6b7280;">Join thousands of users who are already making smarter decisions with our daily insights and personalized recommendations.</p>
-      </div>
-      <div class="hero-image">
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop" alt="AI Analytics Dashboard">
-      </div>
-    </section>
-
-    <!-- Key Features Section -->
-    <section>
-      <h2>Our Key Features</h2>
-      <p>Everything you need to stay ahead and make informed decisions</p>
-      <div class="cards">
-        <div class="card">
-          <h3>🤖 AI-Powered Recommendations</h3>
-          <p>Get suggestions based on data and patterns, personalized for smarter everyday decisions tailored to your needs.</p>
-        </div>
-        <div class="card">
-          <h3>💰 Manage Your Resources</h3>
-          <p>Learn practical methods to save money and optimize your personal or business budget effectively and effortlessly.</p>
-        </div>
-        <div class="card">
-          <h3>📈 Stay Ahead</h3>
-          <p>Receive daily briefings and insights to stay updated and make confident, informed choices in real-time.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section>
-      <h2>Why Choose Momentum Insights?</h2>
-      <p>We combine the power of AI with actionable advice to provide guidance in everyday decision-making, helping you understand trends, patterns, and smart strategies without overwhelming you with complex data.</p>
-    </section>
-
-
-  </main>
-
-  <footer>
-    &copy; 2026 Momentum Insights. All rights reserved.
-  </footer>
-
-  <script>
-    // Track Telegram button clicks
-    const topTelegramBtn = document.getElementById('topTelegramButton');
-    topTelegramBtn.addEventListener('click', () => {
-      fbq('track', 'Lead');
-    });
-
-    const headerJoinBtn = document.getElementById('headerJoinButton');
-    headerJoinBtn.addEventListener('click', () => {
-      fbq('track', 'Lead');
-    });
-  </script>
-</body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

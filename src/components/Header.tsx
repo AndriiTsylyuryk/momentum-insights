@@ -2,18 +2,22 @@ import { useState } from "react";
 import { track } from "@vercel/analytics/react";
 import "./Header.css";
 
-const TELEGRAM_LINK = "https://t.me/s/momentum_insights_channel";
+const TELEGRAM_LINK = "https://t.me/momentum_insights_channel";
 
 const translations = {
   en: {
     joinToday: "Join Today !!!",
     subtitle: "Get your benefits and explore opportunities",
     cta: "Sign to Telegram",
+    analyticsTitle: "Sports Analytics",
+    analyticsBanner: "Real-time analytics and insights across Cricket, Football, Basketball, Tennis, and more!",
   },
   hi: {
     joinToday: "आज ही जुड़ें !!!",
     subtitle: "अपने लाभ प्राप्त करें और अवसरों का पता लगाएं",
     cta: "अभी टेलीग्राम से जुड़ें",
+    analyticsTitle: "खेल विश्लेषण",
+    analyticsBanner: "क्रिकेट, फुटबॉल, बास्केटबॉल, टेनिस और बहुत कुछ में वास्तविक समय विश्लेषण और अंतर्दृष्टि!",
   },
 };
 
@@ -74,6 +78,13 @@ function Header() {
             />
             {t.cta}
           </a>
+        </div>
+      </div>
+
+      <div className="analytics-banner">
+        <div className="analytics-content">
+          <h2 className="analytics-title">{t.analyticsTitle}</h2>
+          <p className="analytics-text">{t.analyticsBanner}</p>
         </div>
       </div>
 

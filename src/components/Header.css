@@ -226,6 +226,39 @@
   height: 28px;
 }
 
+/* Analytics Banner */
+.analytics-banner {
+  width: 100%;
+  background: linear-gradient(135deg, rgba(255, 153, 51, 0.1) 0%, rgba(19, 136, 8, 0.08) 100%);
+  border-top: 2px solid #FF9933;
+  border-bottom: 2px solid #138808;
+  padding: 2rem 1.5rem;
+  margin-top: 2rem;
+}
+
+.analytics-content {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.analytics-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #FF6600;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.3px;
+}
+
+.analytics-text {
+  font-size: 1.05rem;
+  color: #000080;
+  font-weight: 500;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 /* Mobile */
 @media (max-width: 480px) {
   .join-today {
@@ -243,5 +276,17 @@
 
   .ipl-logo {
     height: 90px;
+  }
+
+  .analytics-banner {
+    padding: 1.5rem 1rem;
+  }
+
+  .analytics-title {
+    font-size: 1.3rem;
+  }
+
+  .analytics-text {
+    font-size: 0.95rem;
   }
 }

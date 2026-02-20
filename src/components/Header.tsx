@@ -1,32 +1,69 @@
+import { useState } from "react";
 import { track } from "@vercel/analytics/react";
 import "./Header.css";
 
 const TELEGRAM_LINK = "https://t.me/s/momentum_insights_channel";
 
+const translations = {
+  en: {
+    joinToday: "Join Today !!!",
+    subtitle: "Get your benefits and explore opportunities",
+    cta: "Sign to Telegram",
+  },
+  hi: {
+    joinToday: "आज ही जुड़ें !!!",
+    subtitle: "अपने लाभ प्राप्त करें और अवसरों का पता लगाएं",
+    cta: "अभी टेलीग्राम से जुड़ें",
+  },
+};
+
 function Header() {
+  const [lang, setLang] = useState<"en" | "hi">("hi");
+  const t = translations[lang];
+
   const handleJoinClick = () => {
     track("telegram_button_click", { location: "header" });
-    if (window.fbq) {
-      window.fbq("track", "Lead");
-    }
+    if (window.fbq) window.fbq("track", "Lead");
   };
 
   return (
-    <header className="hero-header">
-      <div className="header-logo">
-        <img src="/logo.png" alt="Momentum Insights Logo" />
+    <div className="page">
+      <div className="flag-bar">
+        <div className="flag-saffron" />
+        <div className="flag-white" />
+        <div className="flag-green" />
       </div>
-      <h1>Momentum Insights</h1>
-      <p>
-        Daily AI-powered tips and smart insights to help you make informed
-        decisions and manage your day with confidence.
-      </p>
 
-      <div className="hero-cta">
-        <div className="telegram-btn-wrapper">
+      <div className="lang-selector">
+        <button
+          className={`lang-btn${lang === "en" ? " active" : ""}`}
+          onClick={() => setLang("en")}
+        >
+          EN
+        </button>
+        <span className="lang-divider">|</span>
+        <button
+          className={`lang-btn${lang === "hi" ? " active" : ""}`}
+          onClick={() => setLang("hi")}
+        >
+          हिन्दी
+        </button>
+      </div>
+
+      <div className="content">
+        <img
+          className="ipl-logo"
+          src="https://upload.wikimedia.org/wikipedia/en/8/84/Indian_Premier_League_Official_Logo.svg"
+          alt="Indian Premier League"
+        />
+
+        <h1 className="join-today">{t.joinToday}</h1>
+        <p className="subtitle">{t.subtitle}</p>
+
+        <div className="btn-wrapper">
           <a
             href={TELEGRAM_LINK}
-            className="telegram-cta-btn"
+            className="telegram-btn"
             onClick={handleJoinClick}
             target="_blank"
             rel="noopener noreferrer"
@@ -35,12 +72,17 @@ function Header() {
               src="https://img.icons8.com/color/48/000000/telegram-app.png"
               alt="Telegram"
             />
-            Join Our Community
+            {t.cta}
           </a>
         </div>
-        <p className="hero-cta-subtext">Free · No spam · Daily insights</p>
       </div>
-    </header>
+
+      <div className="flag-bar bottom">
+        <div className="flag-saffron" />
+        <div className="flag-white" />
+        <div className="flag-green" />
+      </div>
+    </div>
   );
 }
 

@@ -1,6 +1,6 @@
 .hero-header {
   background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
-  padding: 5rem 2rem;
+  padding: 4rem 2rem 5rem;
   text-align: center;
   color: #fff;
   position: relative;
@@ -14,25 +14,37 @@
   right: -10%;
   width: 400px;
   height: 400px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 50%;
+}
+
+.hero-header::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -5%;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.03);
   border-radius: 50%;
 }
 
 .hero-header h1 {
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-weight: 700;
   margin-bottom: 1rem;
   position: relative;
   z-index: 1;
 }
 
-.hero-header p {
-  font-size: 1.25rem;
-  max-width: 650px;
-  margin: 0 auto;
-  opacity: 0.95;
+.hero-header > p {
+  font-size: 1.15rem;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  opacity: 0.88;
   position: relative;
   z-index: 1;
+  line-height: 1.7;
 }
 
 .header-logo {
@@ -40,58 +52,158 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .header-logo img {
-  height: 300px;
+  height: 260px;
   width: auto;
 }
 
-.header-join-section {
-  background: #f9fafb;
-  padding: 2rem;
-  text-align: center;
-  border-bottom: 1px solid #e5e7eb;
+/* CTA container */
+.hero-cta {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  animation: heroFadeUp 0.8s ease 0.3s both;
 }
 
-.header-join-section p {
-  font-size: 1.1rem;
-  color: #4b5563;
-  margin-bottom: 1.5rem;
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.header-join-button {
+/* Pulse ring wrapper */
+.telegram-btn-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.telegram-btn-wrapper::before,
+.telegram-btn-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  animation: pulseRing 2.4s ease-out infinite;
+  pointer-events: none;
+}
+
+.telegram-btn-wrapper::after {
+  animation-delay: 1.2s;
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+/* Main button */
+.telegram-cta-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
-  color: #fff;
-  padding: 1rem 2.5rem;
-  border-radius: 12px;
-  font-weight: 600;
+  background: #ffffff;
+  color: #1e3a8a;
+  padding: 1.1rem 2.8rem;
+  border-radius: 14px;
+  font-weight: 700;
   text-decoration: none;
-  transition: all 0.3s ease;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   cursor: pointer;
   border: none;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: floatBtn 3.5s ease-in-out infinite;
 }
 
-.header-join-button:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(30, 64, 175, 0.3);
+@keyframes floatBtn {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
-.header-join-button img {
-  width: 24px;
-  height: 24px;
+/* Shimmer sweep */
+.telegram-cta-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 80%
+  );
+  animation: shimmer 2.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -80%;
+  }
+  100% {
+    left: 130%;
+  }
+}
+
+.telegram-cta-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  animation-play-state: paused;
+}
+
+.telegram-cta-btn img {
+  width: 28px;
+  height: 28px;
+}
+
+.hero-cta-subtext {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.04em;
 }
 
 @media (max-width: 768px) {
   .hero-header h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
-  .hero-header p {
+  .hero-header > p {
     font-size: 1rem;
+  }
+  .telegram-cta-btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+  .header-logo img {
+    height: 180px;
   }
 }
